@@ -2564,13 +2564,13 @@ class mol3D:
         current_atom_counter = 0
         start = 2
         if read_final_optim_step:
-            start = len(s) - int(s[0]) - 2
+            start = len(s) - int(s[0]) #- 2
         for line in s[start:]:
             line_split = line.split()
             # If the split line has more than 4 elements, only elements 0 through 3 will be used.
             # this means that it should work with any XYZ file that also stores something like mulliken charge
             # Next, this looks for unique atom IDs in files
-            print(line_split,'linesplit')
+            # print(line_split,'linesplit')
             if len(line_split)>0:
                 current_atom_counter += 1
                 lm = re.search(r'\d+$', line_split[0])
